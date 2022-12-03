@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"crypto/tls"
+	"fmt"
 	"go-account-command/handler"
 	"go-account-command/messageBroker"
 	"go-account-command/repository"
@@ -102,5 +103,5 @@ func main() {
 
 	go r.ListenAndServe(ctx, cancel)()
 	messageBroker.ConsumerListen(consumer, consumerHandler, ctx, cancel)
-
+	fmt.Println("start service")
 }
