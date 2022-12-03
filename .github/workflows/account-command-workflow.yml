@@ -41,4 +41,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/account-command:latest,${{ secrets.DOCKER_HUB_USERNAME }}/account-command::${{ github.sha }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/account-command:latest,${{ secrets.DOCKER_HUB_USERNAME }}/account-command:${{ github.sha }}
