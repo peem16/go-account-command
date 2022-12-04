@@ -14,16 +14,15 @@ spec:
     spec:
       restartPolicy: Always
       containers:
-      - name: account-command
-        image: peem16/account-command:latest
-        resources:
-          limits:
-            memory: "32Mi"
-            cpu: "20m"
-        ports:
-        - containerPort: 5050
-        envFrom:
-          - configMapRef: 
-              name: account-command-configmap
-          - secretRef:
-              name: account-command-secret
+        - name: account-command
+          image: peem16/account-command:latest
+          resources:
+            limits:
+              memory: "32Mi"
+              cpu: "20m"
+          ports:
+            - containerPort: 5050
+          envFrom:
+            - configMapRef:
+                name: account-command-configmap
+
