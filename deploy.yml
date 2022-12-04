@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: account-command
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: account-command
+  template:
+    metadata:
+      labels:
+        app: account-command
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: account-command
+        image: peem16/account-command:latest
+        resources:
+          limits:
+            memory: "32Mi"
+            cpu: "20m"
+        ports:
+        - containerPort: 5050
+        envFrom:
+          - configMapRef: 
+              name: account-command-configmap
+          - secretRef:
+              name: account-command-secret
