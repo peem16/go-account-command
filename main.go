@@ -19,7 +19,8 @@ import (
 )
 
 func init() {
-	err := godotenv.Load(".env")
+	err := godotenv.Load()
+
 	if err != nil {
 		log.Printf("Error loading environment: %v", err)
 	}
